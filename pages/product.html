@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>پک آیکون‌های مینیمال – نیش‌مارکت</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+
+  <style>
+    body { direction: rtl; text-align: right; }
+    nav ul { flex-direction: row-reverse; }
+    nav ul li { margin-left: 0; margin-right: 20px; }
+    .tag { margin-left: 0; margin-right: 8px; }
+    button { font-family: inherit; }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="container">
+    <div class="logo">نیش‌مارکت</div>
+    <ul>
+      <li><a href="index.html">خانه</a></li>
+      <li><a href="browse.html">مرور</a></li>
+      <li><a href="dashboard.html">فروش</a></li>
+      <li><a href="login.html">ورود</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="container" style="display:flex;gap:40px;align-items:flex-start;flex-direction:row-reverse">
+
+  <!-- Gallery -->
+  <div style="flex:1">
+    <img src="https://via.placeholder.com/600x400" alt="Main">
+    <div class="grid cols-4 mt-24">
+      <img src="https://via.placeholder.com/150x100" alt="">
+      <img src="https://via.placeholder.com/150x100" alt="">
+      <img src="https://via.placeholder.com/150x100" alt="">
+      <img src="https://via.placeholder.com/150x100" alt="">
+    </div>
+  </div>
+
+  <!-- Info -->
+  <div style="flex:0 0 400px">
+    <h1>پک آیکون‌های مینیمال</h1>
+    <p style="font-size:24px;font-weight:600">۱۲ دلار</p>
+    <p>⭐ امتیاز ۴.۹ – ۳۴ بررسی – ۱۹۲ فروش</p>
+
+    <p style="margin:24px 0">
+      مجموعه‌ای گزینشی شامل ۳۰۰ آیکون مینیمال در فرمت‌های SVG و PNG. مناسب برای وب‌سایت‌ها و اپلیکیشن‌های مدرن.
+    </p>
+
+    <div class="mb-24">
+      <span class="tag">آیکون</span>
+      <span class="tag">svg</span>
+      <span class="tag">رابط کاربری</span>
+    </div>
+
+    <button>افزودن به سبد</button>
+    <button style="background:var(--light);color:var(--dark);margin-right:12px">♡ ذخیره</button>
+
+    <!-- Seller Card -->
+    <div class="card mt-24">
+      <div style="display:flex;align-items:center;gap:16px;flex-direction:row-reverse">
+        <img src="https://via.placeholder.com/64" alt="avatar" style="border-radius:50%">
+        <div>
+          <h4>استودیو آوا</h4>
+          <small>عضو شده از مارس ۲۰۲۲ – ۴۷ محصول</small>
+        </div>
+      </div>
+
+      <p style="margin-top:12px">
+        تولیدکننده منابع طراحی پیکسل‌پرفکت برای توسعه‌دهندگان مستقل.
+      </p>
+
+      <button style="width:100%;margin-top:12px">مشاهده پروفایل</button>
+    </div>
+  </div>
+
+</section>
+
+<section class="container">
+  <h2>محصولات مرتبط</h2>
+
+  <div class="grid cols-4">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="">
+      <h3>ایلاستریشن‌های خطی</h3>
+      <p>۱۴ دلار</p>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="">
+      <h3>کیت وایرفریم رابط کاربری</h3>
+      <p>۲۲ دلار</p>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="">
+      <h3>پک پالت رنگی</h3>
+      <p>۹ دلار</p>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="">
+      <h3>مجموعه دکمه‌های وب</h3>
+      <p>۶ دلار</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> نیش‌مارکت
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

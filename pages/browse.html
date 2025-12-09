@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Browse – NicheMarket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+<header>
+  <nav class="container">
+    <div class="logo">NicheMarket</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="dashboard.html">Sell</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="container" style="display:flex;gap:32px;align-items:flex-start">
+  <!-- Sidebar Filters -->
+  <aside style="flex:0 0 240px">
+    <h3>Filters</h3>
+    <label>Category
+      <select style="width:100%;padding:8px;border-radius:var(--radius);border:1px solid var(--light)">
+        <option>All</option>
+        <option>3D Models</option>
+        <option>Templates</option>
+      </select>
+    </label>
+    <div class="mt-24">
+      <label>Price Range</label>
+      <input type="range" min="0" max="200" value="50">
+    </div>
+    <div class="mt-24">
+      <label>Rating</label><br>
+      <input type="checkbox"> 4★ & up<br>
+      <input type="checkbox"> 3★ & up
+    </div>
+    <button class="mt-24" style="width:100%">Apply</button>
+  </aside>
+
+  <!-- Product Grid -->
+  <main style="flex:1">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+      <h2>All Products</h2>
+      <select>
+        <option>Sort by: Featured</option>
+        <option>Price: Low to High</option>
+        <option>Newest</option>
+      </select>
+    </div>
+
+    <div class="grid cols-3">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="">
+        <h3>Geometric Patterns</h3>
+        <p>$10</p>
+        <small>⭐ 4.9 (34)</small>
+      </div>
+      <!-- repeat cards as needed -->
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="">
+        <h3>Social Media Kit</h3>
+        <p>$18</p>
+        <small>⭐ 4.7 (21)</small>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="">
+        <h3>Embroidery Files</h3>
+        <p>$7</p>
+        <small>⭐ 4.8 (15)</small>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="">
+        <h3>Procreate Palette</h3>
+        <p>$5</p>
+        <small>⭐ 5.0 (9)</small>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="text-center mt-24">
+      <button>1</button>
+      <button style="background:var(--light);color:var(--dark)">2</button>
+      <button style="background:var(--light);color:var(--dark)">3</button>
+    </div>
+  </main>
+</section>
+
+<footer>
+  © <span id="year"></span> NicheMarket
+</footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>
