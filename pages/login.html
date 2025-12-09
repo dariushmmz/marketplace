@@ -1,25 +1,362 @@
-<!-- login.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>Login – NicheMarket</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود به نیش‌مارکت</title>
+    <style>
+        /* ---------- ROOT & RESET ---------- */
+        :root {
+            --white: #ffffff;
+            --dark: #2c3e50;
+            --grey: #7f8c8d;
+            --light: #f8f9fa;
+            --accent: #4f634d; /* Primary earthy green */
+            --secondary-accent: #6f7e67; /* Secondary earthy green */
+            --accent-hover: #3d4f3a; /* Darker accent for hover */
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --radius: 12px; /* Slightly larger for forms */
+            --max: 1200px;
+            --section: 60px;
+            --font: 'Vazir', 'Tahoma', sans-serif; /* Persian-friendly font */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font);
+            color: var(--dark);
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--light) 0%, #e9ecef 100%);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: var(--radius);
+        }
+
+        a { text-decoration: none; }
+
+        button {
+            cursor: pointer;
+            border: none;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, var(--accent), var(--secondary-accent));
+            color: var(--white);
+            padding: 12px 24px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: var(--shadow);
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, var(--accent-hover), var(--secondary-accent));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 99, 77, 0.3);
+        }
+
+        h1, h2, h3 {
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        section {
+            padding: var(--section) 24px;
+            flex: 1;
+        }
+
+        .container {
+            max-width: var(--max);
+            margin: 0 auto;
+        }
+
+        /* ---------- NAVBAR ---------- Consolidated and Enhanced */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-container {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 700px; /* Adjusted for wide screens; responsive below */
+            align-items: center;
+            flex-direction: row-reverse;
+            padding: 18px 20px;
+            direction: rtl; /* Persian-friendly */
+        }
+
+        /* LOGO */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            cursor: default;
+            transition: color 0.3s ease;
+            order: -1; /* RTL positioning */
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--accent);
+        }
+
+        .logo:hover .logo-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* NAV MENU */
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu li a::after {
+            content: "";
+            position: absolute;
+            right: 0; /* RTL */
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.35s ease;
+        }
+
+        .nav-menu li a:hover {
+            color: var(--accent);
+        }
+
+        .nav-menu li a:hover::after {
+            width: 100%;
+        }
+
+        /* RESPONSIVE NAVBAR */
+        @media (max-width: 1024px) {
+            .nav-container {
+                justify-content: center;
+                gap: 40px;
+            }
+            
+            .nav-menu {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px;
+            }
+            
+            .logo {
+                font-size: 22px;
+                gap: 6px;
+                order: 0;
+            }
+            
+            .logo-icon {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .nav-menu {
+                gap: 25px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-menu li a {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 20px;
+            }
+            
+            .nav-menu {
+                gap: 20px;
+            }
+            
+            .nav-menu li a {
+                font-size: 15px;
+            }
+        }
+
+        /* ---------- LOGIN FORM ---------- */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 100px); /* Account for header */
+            padding: 20px;
+        }
+
+        .login-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .login-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(79, 99, 77, 0.15);
+        }
+
+        .login-card h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--grey);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--radius);
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            background: var(--light);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(79, 99, 77, 0.1);
+        }
+
+        .login-card button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px;
+            font-size: 16px;
+        }
+
+        .switch-link {
+            display: block;
+            margin-top: 20px;
+            color: var(--accent);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .switch-link:hover {
+            color: var(--accent-hover);
+        }
+
+        .forgot-password {
+            display: block;
+            margin-top: 10px;
+            color: var(--grey);
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .forgot-password:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive for Forms */
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+
+            .login-card h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
-<body style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:var(--light)">
-<form class="card" style="width:100%;max-width:400px;padding:40px">
-  <h2 class="text-center">Welcome Back</h2>
-  <label style="display:block;margin-top:24px">Email
-    <input type="email" style="width:100%;padding:10px;border:1px solid var(--light);border-radius:var(--radius)">
-  </label>
-  <label style="display:block;margin-top:16px">Password
-    <input type="password" style="width:100%;padding:10px;border:1px solid var(--light);border-radius:var(--radius)">
-  </label>
-  <button style="width:100%;margin-top:24px">Login</button>
-  <p class="text-center mt-24"><a href="forgot-password.html">Forgot password?</a></p>
-  <p class="text-center">Don't have an account? <a href="signup.html">Sign up</a></p>
-</form>
+<body>
+    <header>
+        <nav class="nav-container">
+            <div class="logo">
+                <span><img src="/assets/icon/logo O.png" alt="آیکون لوگو" class="logo-icon"></span>
+                نیش‌مارکت
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="browse.html">محصولات</a></li>
+                <li><a href="dashboard.html">سبد خرید</a></li>
+                <li><a href="login.html">ورود</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="login-container">
+        <div class="container">
+            <form class="login-card">
+                <h2>ورود به حساب کاربری</h2>
+                <div class="form-group">
+                    <label for="email">ایمیل یا نام کاربری</label>
+                    <input type="text" id="email" name="email" required placeholder="ایمیل یا نام کاربری خود را وارد کنید">
+                </div>
+                <div class="form-group">
+                    <label for="password">رمز عبور</label>
+                    <input type="password" id="password" name="password" required placeholder="رمز عبور">
+                </div>
+                <a href="#" class="forgot-password">رمز عبور را فراموش کرده‌اید؟</a>
+                <button type="submit">ورود</button>
+                <a href="signup.html" class="switch-link">حساب کاربری ندارید؟ ثبت‌نام کنید</a>
+            </form>
+        </div>
+    </section>
 </body>
 </html>
