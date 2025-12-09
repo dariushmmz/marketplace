@@ -3,8 +3,10 @@
   max-width: var(--max);
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 550px;
   align-items: center;
+  flex-direction: row-reverse;
   padding: 18px 20px;
   direction: rtl; /* Persian-friendly */
 }
@@ -34,7 +36,6 @@
   transition: color 0.3s ease;
 }
 
-/* 🔥 UNDERLINE ANIMATION */
 .nav-menu li a::after {
   content: "";
   position: absolute;
@@ -42,12 +43,12 @@
   bottom: 0;
   width: 0%;
   height: 2px;
-  background: #0d6efd; /* Blue underline */
+  background: #4f634d; /* Blue underline */
   transition: width 0.35s ease;
 }
 
 .nav-menu li a:hover {
-  color: #0d6efd;
+  color: #4f634d;
 }
 
 .nav-menu li a:hover::after {
@@ -153,6 +154,8 @@ nav li a:hover{
   color:var(--accent);
 }
 
+
+
 /* ---------- HERO ---------- */
 .hero{
   background:var(--white);
@@ -188,6 +191,290 @@ nav li a:hover{
   padding:14px 32px;
   background:var(--accent);
 }
+
+
+
+
+
+
+/* Container Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block;
+}
+
+
+
+/* Grid Layout - Responsive */
+.grid.cols-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+/* Card Styles - Updated: Images as Full-Size Background */
+.card-week {
+  background-size: cover !important; /* Full size background */
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  padding: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 280px;
+  height: 250px; /* Fixed height for consistent full-size image coverage */
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Text at bottom over image */
+}
+
+/* Set background images per card - using nth-child for specificity */
+.grid .card-week:nth-child(1) { 
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_AJedQ_TGV4UPx6PWPJx82qZQwoqcwZRMRA&s');
+}
+
+.grid .card-week:nth-child(2) {
+  background-image: url('https://via.placeholder.com/150x150/2ecc71/white?text=Brush');
+}
+.grid .card-week:nth-child(3) {
+  background-image: url('https://via.placeholder.com/150x150/e74c3c/white?text=Weave');
+}
+
+.grid .card-week:nth-child(4) {
+  background-image: url('https://via.placeholder.com/150x150/f39c12/white?text=Resume');
+}
+
+/* Overlay for text readability on image */
+.card-week::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay for contrast */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.card-week:hover::before {
+  opacity: 1; /* Overlay appears on hover for better text visibility */
+}
+
+.card-week::after { /* Shimmer effect */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+  z-index: 2;
+}
+
+.card-week:hover::after {
+  left: 100%;
+}
+
+.card-week h3 {
+  font-size: 1.2rem;
+  color: white;
+  margin: 0;
+  font-weight: 600;
+  padding: 20px;
+  z-index: 3;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Enhanced readability */
+}
+
+/* Hover Animations - Retained and Enhanced */
+.card-week:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(52, 152, 219, 0.3);
+  border: 2px solid #4f634d;
+
+}
+
+
+
+.card-week:hover {
+  animation: borderPulse 2s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .grid.cols-4 {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+  }
+
+  .container h2 {
+      font-size: 2rem;
+  }
+
+  .card {
+      height: 200px; /* Adjust height for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid.cols-4 {
+      grid-template-columns: 1fr;
+  }
+
+  .container {
+      padding: 20px 10px;
+  }
+
+  .nav-container {
+      gap: 200px; /* Reduce gap on very small screens */
+  }
+}
+
+/* Accessibility */
+.card-week:focus, .nav-menu li a:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+
+/* Card Styles - Updated: Images as Full-Size Background */
+.card {
+  background-size: cover !important; /* Full size background */
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  padding: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 280px;
+  height: 250px; /* Fixed height for consistent full-size image coverage */
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Text at bottom over image */
+}
+
+/* Set background images per card - using nth-child for specificity */
+.grid .card:nth-child(1) { 
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_AJedQ_TGV4UPx6PWPJx82qZQwoqcwZRMRA&s');
+}
+
+.grid .card:nth-child(2) {
+  background-image: url('https://via.placeholder.com/150x150/2ecc71/white?text=Brush');
+}
+.grid .card:nth-child(3) {
+  background-image: url('https://via.placeholder.com/150x150/e74c3c/white?text=Weave');
+}
+
+.grid .card:nth-child(4) {
+  background-image: url('https://via.placeholder.com/150x150/f39c12/white?text=Resume');
+}
+
+/* Overlay for text readability on image */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay for contrast */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.card:hover::before {
+  opacity: 1; /* Overlay appears on hover for better text visibility */
+}
+
+.card::after { /* Shimmer effect */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s;
+  z-index: 2;
+}
+
+.card:hover::after {
+  left: 100%;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  color: white;
+  margin: 0;
+  font-weight: 600;
+  padding: 20px;
+  z-index: 3;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Enhanced readability */
+}
+
+/* Hover Animations - Retained and Enhanced */
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(52, 152, 219, 0.3);
+  border: 2px solid #4f634d;
+
+}
+
+
+
+.card:hover {
+  animation: borderPulse 2s infinite;
+}
+
+/* Accessibility */
+.card-week:focus, .nav-menu li a:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ---------- GRIDS / CARDS ---------- */
 .grid{
@@ -300,3 +587,4 @@ footer{
   nav ul{display:none}
   .hero h1{font-size:32px}
 }
+
