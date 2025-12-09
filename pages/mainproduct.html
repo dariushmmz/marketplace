@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>همه محصولات | فیلتر پیشرفته</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+/* NAV WRAPPER */
+.nav-container {
+  max-width: 1200px; /* Restored reasonable max-width instead of 100% for better centering */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* Changed to space-between for accurate responsive distribution */
+  gap: 700px; /* Removed fixed gap; use justify-content for flexibility */
+  align-items: center;
+  flex-direction: row-reverse;
+  padding: 18px 20px;
+  direction: rtl; /* Persian-friendly */
+}
+
+/* LOGO - Updated with Icon Support */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  cursor: default;
+  transition: color 0.3s ease;
+  order: -1; /* Ensures logo stays on the right (start in RTL) regardless of HTML order */
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; /* Circular icon for modern look */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  color: #4f634d; /* Match nav hover color */
+}
+
+.logo:hover .logo-icon {
+  transform: scale(1.1) rotate(5deg); /* Subtle playful animation on hover */
+}
+
+/* NAV MENU */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.nav-menu li a::after {
+  content: "";
+  position: absolute;
+  right: 0; /* RTL */
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #4f634d; /* Earthy green underline */
+  transition: width 0.35s ease;
+}
+
+.nav-menu li a:hover {
+  color: #4f634d;
+}
+
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+/* RESPONSIVE - Improved for Accuracy */
+@media (max-width: 1024px) {
+  .nav-container {
+    justify-content: center;
+    gap: 40px; /* Moderate gap for tablets */
+  }
+  
+  .nav-menu {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 20px; /* Vertical gap for stacked layout */
+    padding: 15px; /* Slightly reduced padding */
+  }
+  
+  .logo {
+    font-size: 22px;
+    gap: 6px;
+    order: 0; /* Reset order in mobile */
+  }
+  
+  .logo-icon {
+    width: 28px; /* Consistent smaller size for mobile, not 52px */
+    height: 28px;
+  }
+  
+  .nav-menu {
+    gap: 25px;
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    justify-content: center;
+  }
+  
+  .nav-menu li a {
+    font-size: 16px; /* Smaller font for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 20px;
+  }
+  
+  .nav-menu {
+    gap: 20px;
+  }
+  
+  .nav-menu li a {
+    font-size: 15px;
+  }
+}
+
+/* ---------- ROOT & RESET ---------- */
+:root {
+  --white: #ffffff;
+  --dark: #2c3e50;
+  --grey: #7f8c8d;
+  --light: #f8f9fa;
+  --accent: #4f634d; /* Updated to match provided color for harmony */
+  --secondary-accent: #6f7e67; /* New secondary for gradients */
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --radius: 8px;
+}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:var(--font);
+  color:var(--dark);
+}
+body{
+  background:var(--light);
+  line-height:1.5;
+}
+img{
+  max-width:100%;
+  display:block;
+  border-radius:var(--radius);
+}
+a{text-decoration:none}
+button{
+  cursor:pointer;
+  border:none;
+  border-radius:var(--radius);
+  background:var(--accent);
+  color:var(--white);
+  padding:12px 24px;
+  font-weight:600;
+  transition:.25s;
+}
+button:hover{
+  background:var(--accent-hover);
+}
+h1,h2,h3{
+  line-height:1.2;
+  margin-bottom:12px;
+}
+.index-title{
+  text-align: right;
+  padding: 0px 0px 10px 10px;
+  font-size: 1.5rem;
+
+}
+section{
+  padding:var(--section) 24px;
+}
+.container{
+  max-width:var(--max);
+  margin:0 auto;
+}
+
+/* ---------- NAVBAR ---------- */
+header{
+  background:var(--white);
+  box-shadow:var(--shadow);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 24px;
+}
+nav .logo{
+  font-weight:700;
+  font-size:20px;
+  color:var(--dark);
+}
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:24px;
+}
+nav li a{
+  color:var(--grey);
+  font-weight:500;
+}
+nav li a:hover{
+  color:var(--accent);
+}
+
+
+
+    :root {
+      --clr-bg: #e0e8d8;
+      --clr-surface: #4f634d;
+      --clr-surface-light: #6b7d69;
+      --clr-accent: #a3b18a; /* هایلایت ملایم */
+      --clr-text: #1e1e1e;
+      --clr-text-on-surface: #ffffff;
+      --clr-muted: #6b7d69;
+      --radius: 12px;
+      --shadow: 0 8px 24px rgba(79, 99, 77, .12);
+      --max-width: 1200px;
+      --gap: 24px;
+      --section-padding: 48px 0;
+    }
+
+    *,*::before,*::after{box-sizing:border-box;}
+    body{margin:0;font-family:'Inter',Tahoma,sans-serif;background:var(--clr-bg);color:var(--clr-text);line-height:1.8;}
+    img{max-width:100%;display:block;}
+    h1,h2,h3,p{margin:0;}
+    button{font:inherit;border:none;cursor:pointer;border-radius:var(--radius);transition:.25s ease;}
+    ul{list-style:none;padding:0;margin:0;}
+    .container{width:90%;max-width:var(--max-width);margin-inline:auto;}
+    .flex{display:flex;}
+    .grid{display:grid;gap:var(--gap);}
+    .center{align-items:center;justify-content:center;}
+    .btn{padding:.7rem 1.4rem;font-weight:600;display:inline-flex;align-items:center;justify-content:center;font-size:.875rem;}
+    .btn-primary{background:var(--clr-surface);color:var(--clr-text-on-surface);}
+    .btn-primary:hover{background:var(--clr-surface-light);}
+    .btn-secondary{background:rgba(224,232,216,.45);color:var(--clr-surface);border:1px solid #c8d0c0;}
+    .btn-secondary:hover{background:rgba(224,232,216,.75);}
+
+    /* هدر ساده */
+    header{padding:16px 0;border-bottom:1px solid #d0d8c8;background:var(--clr-bg);}
+    header h2{color:var(--clr-surface);font-weight:700;}
+
+    /* ========== فیکس خارج شدن باکس‌های رنج قیمت ========== */
+.price-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;                /* کل عرض والد را بگیرد */
+  box-sizing: border-box;
+}
+
+.price-range input {
+  flex: 1 1 0px;              /* عرض مساوی بدون overflow */
+  min-width: 0;               /* اجازه کوچک شدن تا صفر */
+  padding: 8px 10px;
+  border: 1px solid #c8d0c0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;     /* padding & border داخل محاسبه عرض */
+}
+
+.price-range input:focus {
+  outline: none;
+  border-color: var(--clr-surface);
+  box-shadow: 0 0 0 3px rgba(79, 99, 77, 0.15);
+}
+
+/* فاصله بین "از" و "تا" */
+.price-range span {
+  flex-shrink: 0;             /* عرض ثابت برای خط تیره */
+  margin: 0 4px;
+}
+
+    /* لایوت اصلی */
+    .shop-layout{display:grid;grid-template-columns:280px 1fr;gap:var(--gap);}
+    @media (max-width:900px){.shop-layout{grid-template-columns:1fr;}}
+
+    /* ========== تصحیح ریسپانسیو تصاویر محصولات ========== */
+.products-grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;          /* ارتفاع یکسان در یک ردیف */
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;   /* نسبت ثابت بدون نیاز به height تعریف‌شده */
+  object-fit: cover;     /* پر کردن کادر بدون کشیدگی */
+  transition: transform 0.4s ease;
+}
+
+.product-card-body {
+  flex: 1 0 auto;        /* اشغال فضای باقی‌مانده + جلوگیری از overflow */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+.product-card-btn {
+  margin-top: auto;      /* چسباندن دکمه به پایین کارت */
+}
+    /* سایدبار فیلتر – استیکی + سایه ملایم */
+    /* ========== فیلتر سایدبار – نسخه بهینه و کاربرپسند ========== */
+.filter-sidebar {
+  background: #ffffff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px 24px;
+  height: fit-content;
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* هر گروه فیلتر */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.filter-group h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--clr-surface);
+  margin-bottom: 4px;
+}
+
+/* لیست چک‌باکس‌ها */
+.filter-group ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.filter-group ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 8px;
+  transition: background 0.25s ease;
+}
+.filter-group ul li:hover {
+  background: rgba(224, 232, 216, 0.35);
+}
+
+/* چک‌باکس سفارشی با رنگ برند */
+.filter-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--clr-surface);
+  cursor: pointer;
+}
+
+/* اینپوت‌های رنج قیمت – استایل یکپارچه */
+.price-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.price-range input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #c8d0c0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.price-range input:focus {
+  outline: none;
+  border-color: var(--clr-surface);
+  box-shadow: 0 0 0 3px rgba(79, 99, 77, 0.15);
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+/* دکمه‌ی حذف فیلترها */
+.clear-filters {
+  align-self: flex-start;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--clr-muted);
+  cursor: pointer;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color 0.25s ease;
+}
+.clear-filters:hover {
+  color: var(--clr-surface);
+}
+
+/* حالت شیک در موبایل */
+@media (max-width: 900px) {
+  .filter-sidebar {
+    padding: 24px 16px;
+    gap: 24px;
+  }
+}
+    .filter-group{margin-bottom:28px;}
+    .filter-group h3{font-size:1rem;margin-bottom:14px;color:var(--clr-surface);}
+    .filter-group ul li{margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+    .filter-group input[type=checkbox]{accent-color:var(--clr-surface);width:16px;height:16px;}
+    .price-range{display:flex;gap:8px;align-items:center;}
+    .price-range input{flex:1;padding:8px 10px;border:1px solid #c8d0c0;border-radius:6px;font-size:.875rem;transition:border .25s ease;}
+    .price-range input:focus{outline:none;border-color:var(--clr-surface);}
+    .clear-filters{font-size:.8rem;color:var(--clr-muted);cursor:pointer;text-decoration:underline;margin-top:8px;}
+
+    /* هدر بخش محصولات */
+    .shop-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
+    .shop-header h2{font-size:1.35rem;font-weight:700;}
+  /* ========== سلکت مدرن و کاربرپسند ========== */
+.sort-select {
+  background: #ffffff;
+  border: 1px solid #c8d0c0;
+  border-radius: 8px;
+  padding: 8px 36px 8px 12px;        /* فضای راست برای آیکون دلخواه */
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-text);
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  appearance: none;                   /* حذف استایل پیش‌فرض مرورگر */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234f634d' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 12px center;
+  background-size: 16px;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: var(--clr-surface);
+  box-shadow: 0 0 0 3px rgba(79, 99, 77, 0.15);
+}
+
+.sort-select:hover {
+  border-color: var(--clr-surface-light);
+}
+
+    /* گرید محصولات – کارت‌های شناور */
+    .products-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));}
+    .product-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s ease,box-shadow .3s ease;position:relative;}
+    .product-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(79,99,77,.2);}
+    .product-card img{aspect-ratio:4/3;object-fit:cover;transition:transform .4s ease;}
+    .product-card:hover img{transform:scale(1.05);}
+    .product-card-body{padding:20px;display:flex;flex-direction:column;gap:10px;}
+    .product-card-title{font-size:1rem;font-weight:600;line-height:1.4;}
+    .product-card-price{color:var(--clr-surface);font-weight:800;font-size:1.1rem;}
+    .product-card-btn{width:100%;margin-top:10px;padding:10px;font-size:.875rem;border-radius:8px;}
+
+
+    /* ---------- FOOTER ---------- Updated with Specified Colors */
+    footer {
+      background: linear-gradient(135deg, #4f634d 0%, #6f7e67 100%); /* Updated gradient using provided colors */
+      color: var(--white);
+      padding: 60px 0 20px;
+      margin-top: 30px;
+    }
+
+    .footer-container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      color: var(--white);
+      border-bottom: 2px solid var(--white); /* Updated border to white for contrast on new background */
+      padding-bottom: 8px;
+      display: inline-block;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section ul li a {
+      color: #e8f5e8; /* Light green tint for readability on earthy background */
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .footer-section ul li a:hover {
+      color: var(--white);
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 16px;
+      border: none;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      font-size: 16px;
+    }
+
+    .newsletter-form input::placeholder {
+      color: #e8f5e8; /* Matching light tint */
+    }
+
+    .newsletter-form input:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+    }
+
+    .newsletter-form button {
+      padding: 12px 20px;
+      background: linear-gradient(135deg, var(--white), #d4e4d4); /* Inverted gradient for contrast on dark bg */
+      color: #4f634d; /* Dark text on light button */
+      border-radius: var(--radius);
+      font-weight: 600;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background: linear-gradient(135deg, #f0f8f0, var(--white));
+      transform: translateY(-2px);
+      color: #4f634d;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 16px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: var(--white);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .social-links a:hover {
+      background: var(--white);
+      color: #4f634d; /* Accent color on white bg for hover */
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(79, 99, 77, 0.4);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #e8f5e8; /* Light tint for readability */
+    }
+
+    .footer-bottom a {
+      color: var(--white);
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom a:hover {
+      color: #d4e4d4; /* Subtle light green on hover */
+    }
+
+    /* Responsive Design for User-Friendliness */
+    @media (max-width: 768px) {
+      .footer-content {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          text-align: center;
+      }
+
+      .newsletter-form {
+          flex-direction: column;
+      }
+
+      .social-links {
+          justify-content: center;
+      }
+
+      footer {
+          padding: 40px 0 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-container {
+          padding: 0 16px;
+      }
+
+      .footer-section h3 {
+          font-size: 1.1rem;
+      }
+
+      .newsletter-form input,
+      .newsletter-form button {
+          font-size: 14px;
+          padding: 10px 12px;
+      }
+    }
+
+    /* Accessibility Improvements */
+    footer a:focus {
+      outline: 2px solid var(--white);
+      outline-offset: 2px;
+    }
+
+    .footer-section ul li a:focus {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="nav-container">
+      <div class="logo">
+        <a href="index.html">A makrket</a>
+        <span><img src="/assets/icon/logo O.png" alt="آیکون لوگو" class="logo-icon"></span>
+      </div>
+      
+      <ul class="nav-menu">
+        <li><a href="mainproduct.html">محصولات</a></li>
+        <li><a href="index.html">سبد خرید</a></li>
+        <li><a href="login.html">ورود</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+<main class="container" style="padding:var(--section-padding) 0;">
+  <h1 style="margin-bottom:24px;font-size:1.6rem;font-weight:700;">همه محصولات</h1>
+
+  <div class="shop-layout">
+    <!-- ========== سایدبار فیلتر ========== -->
+    <!-- ========== سایدبار فیلتر – نسخه بهینه و کاربرپسند ========== -->
+<aside class="filter-sidebar">
+  <!-- دسته‌بندی -->
+  <section class="filter-group">
+    <h3>دسته‌بندی</h3>
+    <ul>
+      <li>
+        <label>
+          <input type="checkbox" value="dashboard" onchange="applyFilter()">
+          <span>داشبورد</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="checkbox" value="mobile" onchange="applyFilter()">
+          <span>موبایل</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="checkbox" value="web" onchange="applyFilter()">
+          <span>وب‌سایت</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="checkbox" value="ecommerce" onchange="applyFilter()">
+          <span>فروشگاهی</span>
+        </label>
+      </li>
+    </ul>
+  </section>
+
+  <!-- رنج قیمت -->
+  <section class="filter-group">
+    <h3>رنج قیمت (تومان)</h3>
+    <div class="price-range">
+      <input type="number" id="minPrice" placeholder="از" min="0" oninput="applyFilter()">
+      <span>–</span>
+      <input type="number" id="maxPrice" placeholder="تا" min="0" oninput="applyFilter()">
+    </div>
+  </section>
+
+  <!-- دکمه حذف فیلترها -->
+  <button class="clear-filters" onclick="clearAllFilters()">حذف همه فیلترها</button>
+</aside>
+
+    <!-- ========== محصولات ========== -->
+    <section>
+      <div class="shop-header">
+        <span id="resultCount">۱۲ محصول</span>
+        <select class="sort-select" id="sortSelect" onchange="applyFilter()">
+          <option value="newest">جدیدترین</option>
+          <option value="priceAsc">ارزان‌ترین</option>
+          <option value="priceDesc">گران‌ترین</option>
+          <option value="popular">پرفروش‌ترین</option>
+        </select>
+      </div>
+
+      <div class="grid products-grid" id="productsContainer">
+        <!-- محصول ۱ -->
+        <article class="product-card" data-cat="dashboard" data-price="690000">
+          <img src="../imags/Category/Ai.png" alt="محصول">
+          <div class="product-card-body">
+            <h3 class="product-card-title">کیف داشبورد تحلیلی</h3>
+            <div class="product-card-price">۶۹۰٬۰۰۰ تومان</div>
+            <button class="btn btn-primary product-card-btn"><a href="product.html">مشاهده محصول</a></button>
+          </div>
+        </article>
+
+        <!-- محصول ۲ -->
+        <article class="product-card" data-cat="mobile" data-price="590000">
+          <img src="../imags/Category/Ai.png" alt="محصول">
+          <div class="product-card-body">
+            <h3 class="product-card-title">اپ ولت رمزارز</h3>
+            <div class="product-card-price">۵۹۰٬۰۰۰ تومان</div>
+            <button class="btn btn-primary product-card-btn"><a href="product.html">مشاهده محصول</a></button>
+          </div>
+        </article>
+
+        <!-- محصول ۳ -->
+        <article class="product-card" data-cat="web" data-price="390000">
+          <img src="../imags/Category/Ai.png" alt="محصول">
+          <div class="product-card-body">
+            <h3 class="product-card-title">UI مدیریت تسک</h3>
+            <div class="product-card-price">۳۹۰٬۰۰۰ تومان</div>
+            <button class="btn btn-primary product-card-btn"><a href="product.html">مشاهده محصول</a></button>
+          </div>
+        </article>
+
+        <!-- محصول ۴ -->
+        <article class="product-card" data-cat="ecommerce" data-price="890000">
+          <img src="../imags/Category/Ai.png" alt="محصول">
+          <div class="product-card-body">
+            <h3 class="product-card-title">فروشگاه اینترنتی کامل</h3>
+            <div class="product-card-price">۸۹۰٬۰۰۰ تومان</div>
+            <button class="btn btn-primary product-card-btn"><a href="product.html">مشاهده محصول</a></button>
+          </div>
+        </article>
+
+        <!-- محصول ۵ -->
+        <article class="product-card" data-cat="dashboard" data-price="790000">
+          <img src="../imags/Category/Ai.png" alt="محصول">
+          <div class="product-card-body">
+            <h3 class="product-card-title">داشبورد CRM</h3>
+            <div class="product-card-price">۷۹۰٬۰۰۰ تومان</div>
+            <button class="btn btn-primary product-card-btn"><a href="product.html">مشاهده محصول</a></button>
+          </div>
+        </article>
+
+        <!-- محصول ۶ -->
+        <article class="product-card" data-cat="mobile" data-price="490000">
+          <img src="../imags/Category/Ai.png" alt="محصول">
+          <div class="product-card-body">
+            <h3 class="product-card-title">اپلیکیشن فیتنس</h3>
+            <div class="product-card-price">۴۹۰٬۰۰۰ تومان</div>
+            <button class="btn btn-primary product-card-btn">مشاهده محصول</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</main>
+
+
+<footer>
+  <div class="footer-container">
+      <div class="footer-content">
+          <!-- Company Info -->
+          <div class="footer-section">
+              <h3>نیش‌مارکت</h3>
+              <p style="color: #bdc3c7; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+                  بازار آنلاین دارایی‌های دیجیتال و محصولات خلاقانه از خالقان مستقل. کیفیت، اصالت و خلاقیت در هر محصول.
+              </p>
+              <div class="social-links">
+                  <a href="#" aria-label="اینستاگرام" title="اینستاگرام">📷</a>
+                  <a href="#" aria-label="تلگرام" title="تلگرام">✈️</a>
+                  <a href="#" aria-label="توییتر" title="توییتر">🐦</a>
+                  <a href="#" aria-label="لینکدین" title="لینکدین">💼</a>
+              </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-section">
+              <h3>لینک‌های سریع</h3>
+              <ul>
+                  <li><a href="browse.html">محصولات</a></li>
+                  <li><a href="dashboard.html">سبد خرید</a></li>
+                  <li><a href="about.html">درباره ما</a></li>
+                  <li><a href="contact.html">تماس با ما</a></li>
+              </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="footer-section">
+              <h3>پشتیبانی</h3>
+              <ul>
+                  <li><a href="help.html">راهنما</a></li>
+                  <li><a href="faq.html">سوالات متداول</a></li>
+                  <li><a href="privacy.html">حریم خصوصی</a></li>
+                  <li><a href="terms.html">قوانین و مقررات</a></li>
+              </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="footer-section">
+              <h3>خبرنامه</h3>
+              <p style="color: #bdc3c7; font-size: 0.95rem; margin-bottom: 16px;">
+                  از جدیدترین محصولات و تخفیف‌ها باخبر شوید.
+              </p>
+              <form class="newsletter-form">
+                  <input type="email" placeholder="ایمیل خود را وارد کنید" required aria-label="ایمیل برای خبرنامه">
+                  <button type="submit">اشتراک</button>
+              </form>
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <p>&copy; ۱۴۰۴ نیش‌مارکت. تمامی حقوق محفوظ است. | <a href="privacy.html">حریم خصوصی</a> | <a href="terms.html">قوانین</a></p>
+      </div>
+  </div>
+</footer>
+
+<script>
+  function applyFilter() {
+    const cats = Array.from(document.querySelectorAll('.filter-group input[type=checkbox]:checked')).map(cb => cb.value);
+    const min = parseInt(document.getElementById('minPrice').value) || 0;
+    const max = parseInt(document.getElementById('maxPrice').value) || Infinity;
+    const cards = document.querySelectorAll('.product-card');
+    let visible = 0;
+
+    cards.forEach(card => {
+      const price = parseInt(card.dataset.price);
+      const cat = card.dataset.cat;
+      const catMatch = cats.length === 0 || cats.includes(cat);
+      const priceMatch = price >= min && price <= max;
+      const show = catMatch && priceMatch;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    document.getElementById('resultCount').textContent = visible + ' محصول';
+  }
+
+  function clearAllFilters() {
+    document.querySelectorAll('.filter-group input').forEach(el => el.checked = false);
+    document.getElementById('minPrice').value = '';
+    document.getElementById('maxPrice').value = '';
+    applyFilter();
+  }
+</script>
+
+</body>
+</html>

@@ -1,125 +1,346 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa-IR" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>پک آیکون‌های مینیمال – نیش‌مارکت</title>
+  <title>Marketplace SaaS – صفحه محصول</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/styles.css">
-
-  <style>
-    body { direction: rtl; text-align: right; }
-    nav ul { flex-direction: row-reverse; }
-    nav ul li { margin-left: 0; margin-right: 20px; }
-    .tag { margin-left: 0; margin-right: 8px; }
-    button { font-family: inherit; }
-  </style>
+  <!-- Google Font – Inter (with Persian support) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../assets/css/product.css">
 </head>
 <body>
 
-<header>
-  <nav class="container">
-    <div class="logo">نیش‌مارکت</div>
-    <ul>
-      <li><a href="index.html">خانه</a></li>
-      <li><a href="browse.html">مرور</a></li>
-      <li><a href="dashboard.html">فروش</a></li>
-      <li><a href="login.html">ورود</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav class="nav-container">
+      <div class="logo">
+        <a href="index.html">A makrket</a>
+        <span><img src="/assets/icon/logo O.png" alt="آیکون لوگو" class="logo-icon"></span>
+      </div>
+      
+      <ul class="nav-menu">
+        <li><a href="mainproduct.html">محصولات</a></li>
+        <li><a href="index.html">سبد خرید</a></li>
+        <li><a href="login.html">ورود</a></li>
+      </ul>
+    </nav>
+  </header>
+  
 
-<section class="container" style="display:flex;gap:40px;align-items:flex-start;flex-direction:row-reverse">
-
-  <!-- Gallery -->
-  <div style="flex:1">
-    <img src="https://via.placeholder.com/600x400" alt="Main">
-    <div class="grid cols-4 mt-24">
-      <img src="https://via.placeholder.com/150x100" alt="">
-      <img src="https://via.placeholder.com/150x100" alt="">
-      <img src="https://via.placeholder.com/150x100" alt="">
-      <img src="https://via.placeholder.com/150x100" alt="">
-    </div>
-  </div>
-
-  <!-- Info -->
-  <div style="flex:0 0 400px">
-    <h1>پک آیکون‌های مینیمال</h1>
-    <p style="font-size:24px;font-weight:600">۱۲ دلار</p>
-    <p>⭐ امتیاز ۴.۹ – ۳۴ بررسی – ۱۹۲ فروش</p>
-
-    <p style="margin:24px 0">
-      مجموعه‌ای گزینشی شامل ۳۰۰ آیکون مینیمال در فرمت‌های SVG و PNG. مناسب برای وب‌سایت‌ها و اپلیکیشن‌های مدرن.
-    </p>
-
-    <div class="mb-24">
-      <span class="tag">آیکون</span>
-      <span class="tag">svg</span>
-      <span class="tag">رابط کاربری</span>
-    </div>
-
-    <button>افزودن به سبد</button>
-    <button style="background:var(--light);color:var(--dark);margin-right:12px">♡ ذخیره</button>
-
-    <!-- Seller Card -->
-    <div class="card mt-24">
-      <div style="display:flex;align-items:center;gap:16px;flex-direction:row-reverse">
-        <img src="https://via.placeholder.com/64" alt="avatar" style="border-radius:50%">
-        <div>
-          <h4>استودیو آوا</h4>
-          <small>عضو شده از مارس ۲۰۲۲ – ۴۷ محصول</small>
+  <!-- ================= MAIN PRODUCT AREA ================= -->
+  <main>
+    <div class="container product-layout">
+      <!-- LEFT – Media -->
+      <section class="media-wrapper">
+        <div class="hero-img">
+          <img src="../imags/Category/Edit.png" alt="پیش‌نمایش محصول">
+          <div class="floating-badges">
+            <span class="badge badge-bestseller">پرفروش‌ترین</span>
+            <span class="badge badge-limited">محدود</span>
+            <span class="badge badge-toprated">برترین امتیاز</span>
+          </div>
         </div>
+
+        <!-- Thumbnail Gallery -->
+        <ul class="thumb-gallery">
+          <li class="thumb active"><img src="/imags/Category/Ai.png" alt="thumbnail"></li>
+          <li class="thumb"><img src="/imags/Category/3d models.png" alt="thumbnail"></li>
+          <li class="thumb"><img src="/imags/Category/Edit.png" alt="thumbnail"></li>
+          <li class="thumb"><img src="/imags/Category/Music.png" alt="thumbnail"></li>
+        </ul>
+      </section>
+
+      <!-- RIGHT – Sticky Purchase Card -->
+      <aside class="purchase-card">
+        <h1>کیف UI حرفه‌ای برای داشبوردهای SaaS</h1>
+
+        <div class="price-group">
+          <span class="old-price">۱٬۸۹۰٬۰۰۰ تومان</span>
+          <span class="new-price">۹۹۰٬۰۰۰ تومان</span>
+        </div>
+
+        <div class="rating-line">
+          <div class="stars">
+            <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star empty"></span>
+          </div>
+          <span>(۱۲۸ دیدگاه)</span>
+        </div>
+
+        <div class="meta-line">۱٬۲۵۰ فروش • به‌روزرسانی هفته گذشته</div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary">افزودن به سبد</button>
+          <button class="btn btn-secondary">ذخیره در علاقه‌مندی‌ها</button>
+        </div>
+
+        <div class="trust-line">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span>دانلود آنی</span>
+        </div>
+        <div class="trust-line">
+          <svg viewBox="0 0 24 24"><path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4zm0 2.29L19 7.3V12c0 3.87-2.69 7.43-7 8.51-4.31-1.08-7-4.64-7-8.51V7.3L12 4.29z"/></svg>
+          <span>پرداخت امن</span>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ================= VALUE HIGHLIGHTS – با بک‌گراند تیره جدید ========= -->
+  <section class="value-highlights">
+    <div class="container">
+      <h2>چرا این محصول را دوست خواهید داشت</h2>
+      <div class="grid value-grid">
+        <article class="value-card">
+          <div class="icon"></div>
+          <h3>مجوز تجاری رایگان</h3>
+          <p>استفاده در پروژه‌های شخصی و تجاری بدون محدودیت.</p>
+        </article>
+        <article class="value-card">
+          <div class="icon"></div>
+          <h3>فایل‌های آماده</h3>
+          <p>فایل‌های سازمان‌یافته Figma، Sketch و Adobe XD.</p>
+        </article>
+        <article class="value-card">
+          <div class="icon"></div>
+          <h3>دانلود آنی</h3>
+          <p>بلافاصله پس از خرید، ۲۴ ساعته در دسترس شماست.</p>
+        </article>
+        <article class="value-card">
+          <div class="icon"></div>
+          <h3>به‌روزرسانی رایگان</h3>
+          <p>تمام نسخه‌های آینده بدون پرداخت اضافی دریافت کنید.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TABBED CONTENT ================= -->
+  <section class="tabbed">
+    <div class="container">
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="overview">بررسی اجمالی</button>
+        <button class="tab-btn" data-tab="included">محتویات</button>
+        <button class="tab-btn" data-tab="license">مجوز</button>
+        <button class="tab-btn" data-tab="faq">سوالات متداول</button>
       </div>
 
-      <p style="margin-top:12px">
-        تولیدکننده منابع طراحی پیکسل‌پرفکت برای توسعه‌دهندگان مستقل.
-      </p>
-
-      <button style="width:100%;margin-top:12px">مشاهده پروفایل</button>
+      <div id="overview" class="tab-panel active">
+        <p>کیف UI مدرن و تمیز برای داشبوردهای SaaS و پنل‌های مدیریت. شامل کامپوننت‌های قابل استفاده مجدد، فریم‌های auto-layout و آیکون‌های دقیق برای افزایش سرعت طراحی شما.</p>
+      </div>
+      <div id="included" class="tab-panel">
+        <ul style="padding-right:20px; list-style:disc;">
+          <li>بیش از ۲۰۰ کامپوننت واکنش‌گرا</li>
+          <li>نسخه‌های دارک و لایت</li>
+          <li>پروتوتایپ‌های تعاملی</li>
+          <li>سیستم رنگ و تایپوگرافی یکپارچه</li>
+          <li>راهنمای شروع سریع</li>
+        </ul>
+      </div>
+      <div id="license" class="tab-panel">
+        <p>با خرید این محصول، مجوز تجاری دریافت می‌کنید که استفاده در پروژه‌های شخصی و تجاری را بدون محدودیت مجاز می‌کند. انتشار یا فروش مجدد محصول به هر شکل ممنوع است.</p>
+      </div>
+      <div id="faq" class="tab-panel">
+        <p><strong>آیا می‌توانم در چندین پروژه استفاده کنم؟</strong><br>بله، بدون محدودیت.</p>
+        <p><strong>آیا به‌روزرسانی دریافت می‌کنم؟</strong><br>بله، تمام نسخه‌های آینده رایگان خواهند بود.</p>
+      </div>
     </div>
-  </div>
+  </section>
 
-</section>
-
-<section class="container">
-  <h2>محصولات مرتبط</h2>
-
-  <div class="grid cols-4">
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="">
-      <h3>ایلاستریشن‌های خطی</h3>
-      <p>۱۴ دلار</p>
+  <!-- ================= SELLER PROFILE – با بک‌گراند تیره جدید ========= -->
+  <section class="seller">
+    <div class="container">
+      <h2>با سازنده آشنا شوید</h2>
+      <div class="seller-card">
+        <div class="seller-header">
+          <img src="../imags/user.png" alt="creator" class="seller-avatar">
+          <div>
+            <div class="flex center" style="gap:6px;">
+              <span class="verified" aria-label="تاییدشده"><img src="../imags/Tik.png" alt=""></span>
+              <h3>علی مورگان</h3>
+            </div>
+            <p style="font-size:.875rem; opacity:.85;">طراح محصول، عاشق رابط‌های تمیز و سیستم‌های مقیاس‌پذیر.</p>
+          </div>
+        </div>
+        <div class="seller-stats">
+          <div><strong>۲٬۸۹۰</strong> فروش</div>
+          <div><strong>۴.۹</strong> میانگین امتیاز</div>
+          <div><strong>عضو از</strong> ۱۳۹۸</div>
+        </div>
+        <button class="btn btn-secondary">مشاهده فروشگاه سازنده</button>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="">
-      <h3>کیت وایرفریم رابط کاربری</h3>
-      <p>۲۲ دلار</p>
+  <!-- ================= SOCIAL PROOF ================= -->
+  <section class="social-proof">
+    <div class="container">
+      <h2>دیدگاه مشتریان</h2>
+      <div class="reviews-scroll">
+        <article class="review-card">
+          <div class="review-header">
+            <img src="../imags/user.png" alt="user" class="review-avatar">
+            <div>
+              
+              <p style="font-size:.875rem; font-weight:600;">سارا</p>
+            </div>
+          </div>
+          <p class="review-quote">«چندین هفته از زمانم را ذخیره کرد. کامپوننت‌ها بسیار شهودی و زیبا هستند.»</p>
+          <div class="stars">
+                <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+              </div>
+        </article>
+        <article class="review-card">
+          <div class="review-header">
+            <img src="../imags/user.png" alt="user" class="review-avatar">
+            <div>
+              
+              <p style="font-size:.875rem; font-weight:600;">جواد </p>
+            </div>
+          </div>
+          <p class="review-quote">«ارزش خرید بالا، فایل‌ها کاملاً منظم و پشتیبانی عالی.»</p>
+          <div class="stars">
+                <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star empty"></span>
+              </div>
+        </article>
+        <article class="review-card">
+          <div class="review-header">
+            <img src="../imags/user.png" alt="user" class="review-avatar">
+            <div>
+             
+              <p style="font-size:.875rem; font-weight:600;">نازنین </p>
+            </div>
+          </div>
+          <p class="review-quote">«مشتریانم عاشق داشبورد جدید شدند. تمیز، مدرن و ساده برای شخصی‌سازی.»</p>
+           <div class="stars">
+                <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+              </div>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="">
-      <h3>پک پالت رنگی</h3>
-      <p>۹ دلار</p>
+  <!-- ================= RELATED PRODUCTS ================= -->
+  <section class="related">
+    <div class="container">
+      <h2>شاید دوست داشته باشید</h2>
+      <div class="related-scroll">
+        <article class="related-card">
+          <img src="../imags/Category/Music.png" alt="product">
+          <div class="related-body">
+            <h3 class="related-title">کیف داشبورد تحلیلی</h3>
+            <div class="related-price">۶۹۰٬۰۰۰ تومان</div>
+            <button class="btn btn-primary related-add">افزودن</button>
+          </div>
+        </article>
+        <article class="related-card">
+          <img src="../imags/Category/Music.png" alt="product">
+          <div class="related-body">
+            <h3 class="related-title">UI بانکداری موبایل</h3>
+            <div class="related-price">۴۹۰٬۰۰۰ تومان</div>
+            <button class="btn btn-primary related-add">افزودن</button>
+          </div>
+        </article>
+        <article class="related-card">
+          <img src="../imags/Category/Music.png" alt="product">
+          <div class="related-body">
+            <h3 class="related-title">اپ ولت رمزارز</h3>
+            <div class="related-price">۵۹۰٬۰۰۰ تومان</div>
+            <button class="btn btn-primary related-add">افزودن</button>
+          </div>
+        </article>
+        <article class="related-card">
+          <img src="../imags/Category/Music.png" alt="product">
+          <div class="related-body">
+            <h3 class="related-title">UI مدیریت تسک</h3>
+            <div class="related-price">۳۹۰٬۰۰۰ تومان</div>
+            <button class="btn btn-primary related-add">افزودن</button>
+          </div>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200" alt="">
-      <h3>مجموعه دکمه‌های وب</h3>
-      <p>۶ دلار</p>
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <!-- Company Info -->
+            <div class="footer-section">
+                <h3>نیش‌مارکت</h3>
+                <p style="color: #bdc3c7; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+                    بازار آنلاین دارایی‌های دیجیتال و محصولات خلاقانه از خالقان مستقل. کیفیت، اصالت و خلاقیت در هر محصول.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="اینستاگرام" title="اینستاگرام">📷</a>
+                    <a href="#" aria-label="تلگرام" title="تلگرام">✈️</a>
+                    <a href="#" aria-label="توییتر" title="توییتر">🐦</a>
+                    <a href="#" aria-label="لینکدین" title="لینکدین">💼</a>
+                </div>
+            </div>
+  
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>لینک‌های سریع</h3>
+                <ul>
+                    <li><a href="browse.html">محصولات</a></li>
+                    <li><a href="dashboard.html">سبد خرید</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="contact.html">تماس با ما</a></li>
+                </ul>
+            </div>
+  
+            <!-- Support -->
+            <div class="footer-section">
+                <h3>پشتیبانی</h3>
+                <ul>
+                    <li><a href="help.html">راهنما</a></li>
+                    <li><a href="faq.html">سوالات متداول</a></li>
+                    <li><a href="privacy.html">حریم خصوصی</a></li>
+                    <li><a href="terms.html">قوانین و مقررات</a></li>
+                </ul>
+            </div>
+  
+            <!-- Newsletter -->
+            <div class="footer-section">
+                <h3>خبرنامه</h3>
+                <p style="color: #bdc3c7; font-size: 0.95rem; margin-bottom: 16px;">
+                    از جدیدترین محصولات و تخفیف‌ها باخبر شوید.
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="ایمیل خود را وارد کنید" required aria-label="ایمیل برای خبرنامه">
+                    <button type="submit">اشتراک</button>
+                </form>
+            </div>
+        </div>
+  
+        <div class="footer-bottom">
+            <p>&copy; ۱۴۰۴ نیش‌مارکت. تمامی حقوق محفوظ است. | <a href="privacy.html">حریم خصوصی</a> | <a href="terms.html">قوانین</a></p>
+        </div>
     </div>
+  </footer>
+  
+  <!-- ================= TINY TAB SCRIPT (framework-free) ================= -->
+  <script>
+    // Tab switcher – vanilla JS, no dependencies
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
 
-  </div>
-</section>
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        tabButtons.forEach(b => b.classList.toggle('active', b === btn));
+        tabPanels.forEach(p => p.classList.toggle('active', p.id === target));
+      });
+    });
 
-<footer>
-  © <span id="year"></span> نیش‌مارکت
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
+    // Thumbnail gallery swap (optional enhancement)
+    const thumbs = document.querySelectorAll('.thumb');
+    const heroImg = document.querySelector('.hero-img img');
+    thumbs.forEach(t => t.addEventListener('click', () => {
+      thumbs.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      heroImg.src = t.querySelector('img').src.replace('200x200', '800x600');
+    }));
+  </script>
 </body>
 </html>

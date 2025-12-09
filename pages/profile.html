@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>CreatorMarket – پروفایل سازنده</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --clr-bg: #e0e8d8;
+      --clr-surface: #4f634d;
+      --clr-surface-light: #6b7d69;
+      --clr-text: #1e1e1e;
+      --clr-text-on-surface: #ffffff;
+      --clr-muted: #6b7d69;
+      --radius: 12px;
+      --shadow: 0 4px 18px rgba(0,0,0,.08);
+      --max-width: 1200px;
+      --gap: 24px;
+      --section-padding: 48px 0;
+    }
+
+    *,*::before,*::after{box-sizing:border-box;}
+    body{margin:0;font-family:'Inter',Tahoma,sans-serif;background:var(--clr-bg);color:var(--clr-text);line-height:1.8;}
+    img{max-width:100%;display:block;}
+    h1,h2,h3,p{margin:0;}
+    button{font:inherit;border:none;cursor:pointer;border-radius:var(--radius);transition:.25s ease;}
+    ul{list-style:none;padding:0;margin:0;}
+    .container{width:90%;max-width:var(--max-width);margin-inline:auto;}
+    .flex{display:flex;}
+    .grid{display:grid;gap:var(--gap);}
+    .center{align-items:center;justify-content:center;}
+    .btn{padding:.9rem 1.6rem;font-weight:600;display:inline-flex;align-items:center;justify-content:center;}
+    .btn-primary{background:var(--clr-surface);color:var(--clr-text-on-surface);}
+    .btn-primary:hover{background:var(--clr-surface-light);}
+    .btn-secondary{background:#f3f4f6;color:var(--clr-text);}
+    .btn-secondary:hover{background:#e5e7eb;}
+
+    /* هدر ساده */
+    header{padding:16px 0;border-bottom:1px solid #d0d8c8;background:var(--clr-bg);}
+    header h2{color:var(--clr-surface);font-weight:700;}
+
+    /* کاور پروفایل */
+    .creator-hero{
+      background:var(--clr-surface);
+      color:var(--clr-text-on-surface);
+      padding:60px 0 40px;
+      position:relative;
+    }
+    .creator-hero-inner{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;}
+    .creator-avatar{
+      width:120px;height:120px;
+      border-radius:50%;
+      border:4px solid var(--clr-bg);
+      object-fit:cover;
+      box-shadow:0 4px 12px rgba(0,0,0,.15);
+    }
+    .creator-info h1{font-size:1.75rem;margin-bottom:8px;}
+    .creator-info p{opacity:.85;font-size:1rem;}
+    .verified{
+        margin-left: 10px;
+      width:24px;height:24px;
+      background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23e0e8d8" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') center/contain no-repeat;
+      display:inline-block;margin-right:6px;vertical-align:middle;
+    }
+    .creator-stats{
+      display:flex;gap:32px;margin-top:16px;font-size:.9rem;
+    }
+    .creator-stats div strong{display:block;font-size:1.1rem;}
+
+    /* دکمه اکشن */
+    .creator-actions{
+      margin-top:24px;
+      display:flex;gap:12px;flex-wrap:wrap;
+    }
+
+    /* تب‌های ناوبری پروفایل */
+    .profile-tabs{
+      background:#fff;
+      border-bottom:1px solid #e5e7eb;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    .profile-tabs-inner{
+      display:flex;gap:8px;overflow-x:auto;
+    }
+    .tab-btn{
+      background:none;padding:12px 16px;font-weight:600;color:var(--clr-muted);
+      border-radius:0;position:relative;white-space:nowrap;
+    }
+    .tab-btn.active{color:var(--clr-surface);}
+    .tab-btn.active::after{
+      content:'';position:absolute;bottom:0;right:0;left:0;height:3px;background:var(--clr-surface);
+    }
+
+    /* پنل‌های تب */
+    .tab-panel{display:none;animation:fade .4s;}
+    .tab-panel.active{display:block;}
+    @keyframes fade{from{opacity:0;}to{opacity:1;}}
+
+    /* ========== تصحیح ریسپانسیو تصاویر محصولات ========== */
+.products-grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;          /* ارتفاع یکسان در یک ردیف */
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;   /* نسبت ثابت بدون نیاز به height تعریف‌شده */
+  object-fit: cover;     /* پر کردن کادر بدون کشیدگی */
+  transition: transform 0.4s ease;
+}
+
+.product-card-body {
+  flex: 1 0 auto;        /* اشغال فضای باقی‌مانده + جلوگیری از overflow */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+.product-card-btn {
+  margin-top: auto;      /* چسباندن دکمه به پایین کارت */
+}
+
+    /* گالری محصولات سازنده */
+    .products-grid{
+      grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    }
+    .product-card{
+      background:#fff;border-radius:var(--radius);overflow:hidden;
+      box-shadow:var(--shadow);transition:transform .25s ease;
+    }
+    .product-card:hover{transform:translateY(-4px);}
+    .product-card img{aspect-ratio:4/3;object-fit:cover;}
+    .product-card-body{padding:16px;display:flex;flex-direction:column;gap:8px;}
+    .product-card-title{font-size:1rem;font-weight:600;}
+    .product-card-price{color:var(--clr-surface);font-weight:700;}
+    .product-card-btn{width:100%;margin-top:8px;padding:8px;font-size:.875rem;}
+
+    /* بررسی‌ها */
+    .reviews-scroll{
+      display:flex;gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;
+    }
+    .review-card{
+      background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);
+      min-width:280px;scroll-snap-align:start;padding:20px;
+    }
+    .review-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+    .review-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;}
+    .review-quote{font-size:.875rem;color:var(--clr-muted);}
+
+    /* فوتر ساده */
+    footer{padding:32px 0;text-align:center;font-size:.875rem;color:var(--clr-muted);border-top:1px solid #d0d8c8;background:var(--clr-bg);}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container flex center">
+    <h2>CreatorMarket</h2>
+  </div>
+</header>
+
+<!-- ========== کاور اطلاعات سازنده ========== -->
+<section class="creator-hero">
+  <div class="container">
+    <div class="creator-hero-inner">
+      <img  src="../imags/user.png" alt="علی مورگان" class="creator-avatar">
+      <div class="creator-info">
+        <h1><span class="verified"><img src="../imags/Tik.png" alt=""></span>علی مورگان</h1>
+        <p>طراح UI/UX با تمرکز بر رابط‌های تمیز و تجربه کاربری لذت‌بخش. ۶ سال سابقه همکاری با استارتاپ‌های بین‌المللی.</p>
+        <div class="creator-stats">
+          <div><strong>۲٬۸۹۰</strong> فروش</div>
+          <div><strong>۴.۹</strong> میانگین امتیاز</div>
+          <div><strong>۱۳۹۸</strong> عضویت</div>
+        </div>
+        <div class="creator-actions">
+          <button class="btn btn-primary">دنبال کردن</button>
+          <button class="btn btn-secondary">ارسال پیام</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== تب‌های ناوبری ========== -->
+<nav class="profile-tabs">
+  <div class="container">
+    <div class="profile-tabs-inner">
+      <button class="tab-btn active" data-tab="products">محصولات</button>
+      <button class="tab-btn" data-tab="reviews">بررسی‌ها</button>
+      <button class="tab-btn" data-tab="about">درباره</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== محتوای تب‌ها ========== -->
+<main class="container" style="padding:var(--section-padding) 0;">
+  <!-- تب محصولات -->
+  <div id="products" class="tab-panel active">
+    <h2 style="margin-bottom:20px;">محصولات <span style="color:var(--clr-muted);font-size:.9rem;">(۱۲ محصول)</span></h2>
+    <div class="grid products-grid">
+      <!-- کارت محصول ۱ -->
+      <article class="product-card">
+        <img src="../imags/Category/Edit.png" alt="محصول">
+        <div class="product-card-body">
+          <h3 class="product-card-title">کیف داشبورد تحلیلی</h3>
+          <div class="product-card-price">۶۹۰٬۰۰۰ تومان</div>
+          <button class="btn btn-primary product-card-btn">مشاهده محصول</button>
+        </div>
+      </article>
+      <!-- کارت محصول ۲ -->
+      <article class="product-card">
+        <img src="../imags/Category/Edit.png" alt="محصول">
+        <div class="product-card-body">
+          <h3 class="product-card-title">اپ ولت رمزارز</h3>
+          <div class="product-card-price">۵۹۰٬۰۰۰ تومان</div>
+          <button class="btn btn-primary product-card-btn">مشاهده محصول</button>
+        </div>
+      </article>
+      <!-- کارت محصول ۳ -->
+      <article class="product-card">
+        <img src="../imags/Category/Edit.png" alt="محصول">
+        <div class="product-card-body">
+          <h3 class="product-card-title">UI مدیریت تسک</h3>
+          <div class="product-card-price">۳۹۰٬۰۰۰ تومان</div>
+          <button class="btn btn-primary product-card-btn">مشاهده محصول</button>
+        </div>
+      </article>
+      <!-- کارت محصول ۴ -->
+      <article class="product-card">
+        <img src="../imags/Category/Edit.png" alt="محصول">
+        <div class="product-card-body">
+          <h3 class="product-card-title">فروشگاه اینترنتی کامل</h3>
+          <div class="product-card-price">۸۹۰٬۰۰۰ تومان</div>
+          <button class="btn btn-primary product-card-btn">مشاهده محصول</button>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- تب بررسی‌ها -->
+  <div id="reviews" class="tab-panel">
+    <h2 style="margin-bottom:20px;">دیدگاه مشتریان</h2>
+    <div class="reviews-scroll">
+      <article class="review-card">
+        <div class="review-header">
+          <img src="https://source.unsplash.com/random/200x200?woman" alt="user" class="review-avatar">
+          <div>
+            <div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+            <p style="font-size:.875rem;font-weight:600;">سارا ک.</p>
+          </div>
+        </div>
+        <p class="review-quote">کیفیت فایل‌ها عالی بود. طراحی‌ها مدرن و تمیز هستند.</p>
+      </article>
+      <article class="review-card">
+        <div class="review-header">
+          <img src="https://source.unsplash.com/random/200x200?man" alt="user" class="review-avatar">
+          <div>
+            <div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star empty"></span></div>
+            <p style="font-size:.875rem;font-weight:600;">جواد د.</p>
+          </div>
+        </div>
+        <p class="review-quote">پشتیبانی فوق‌العاده سریع و حرفه‌ای. ممنونم!</p>
+      </article>
+    </div>
+  </div>
+
+  <!-- تب درباره -->
+  <div id="about" class="tab-panel">
+    <h2 style="margin-bottom:16px;">درباره من</h2>
+    <p style="max-width:680px;line-height:1.9;">
+      من علی مورگان، طراح UI/UX هستم و بیش از ۶ سال است که با برندها و استارتاپ‌های مختلف در سراسر جهان همکاری می‌کنم. عاشق خلق رابط‌های ساده اما قدرتمند هستم که لذت استفاده را به کاربر منتقل کنند. در این فروشگاه می‌توانید تمام محصولاتی که با دقت و علاقه طراحی کرده‌ام را پیدا کنید.
+    </p>
+    <ul style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;">
+      <li class="badge badge-toprated">طراح برگزیده سال ۱۴۰۲</li>
+      <li class="badge badge-bestseller">پرفروش‌ترین طراح ماه</li>
+    </ul>
+  </div>
+</main>
+
+<!-- ========== فوتر ساده ========== -->
+<footer>
+  © ۲۰۲۵ CreatorMarket • تمامی حقوق محفوظ است
+</footer>
+
+<!-- ========== اسکریپت تب‌ها (بدون فریم‌ورک) ========== -->
+<script>
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      tabButtons.forEach(b => b.classList.toggle('active', b === btn));
+      tabPanels.forEach(p => p.classList.toggle('active', p.id === target));
+    });
+  });
+</script>
+
+</body>
+</html>
